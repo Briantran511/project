@@ -45,6 +45,10 @@ public class App extends JFrame{
             }
             
         });
+        // Create register button
+        JButton register = new JButton("Register");
+        register.setBounds(50,100,95,30);
+        jp.add(register);
         add(jp);
         jp.setLayout(new FlowLayout(FlowLayout.CENTER));
         setSize(400,400);
