@@ -45,10 +45,42 @@ public class App extends JFrame{
             }
             
         });
+        
         // Create register button
         JButton register = new JButton("Register");
         register.setBounds(50,100,95,30);
         jp.add(register);
+        register.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String username = userText.getText();
+                String password = passText.getText();
+                if (!username.isEmpty() && !password.isEmpty()) {
+                    // Save username and password to a file or database
+                    
+                    // Create a new JFrame for the new window
+                    JFrame registerWindow = new JFrame("Registration Successful");
+                    
+                    // Create a JLabel to display a message
+                    JLabel successLabel = new JLabel();
+                    JLabel newName = new JLabel("UserName");
+                    successLabel.add(newName);
+                    JTextField newNameText = new JTextField(10);
+                    successLabel.add(newNameText);
+                    registerWindow.add(successLabel);
+                    
+                    // Set the size and visibility of the new window
+                    registerWindow.setSize(300, 200);
+                    registerWindow.setVisible(true);
+                    registerWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Close only the new window
+                    
+                    // Show a dialog box to notify the user
+                    JOptionPane.showMessageDialog(register, "Registration Successful");
+                } else {
+                    JOptionPane.showMessageDialog(register, "Please fill in both username and password");
+                }
+            }
+        });
         add(jp);
         jp.setLayout(new FlowLayout(FlowLayout.CENTER));
         setSize(400,400);
